@@ -1,13 +1,14 @@
 name: Deploy to Firebase Hosting on PR
+
 on:
   pull_request:
     branches:
-      - main # Change this to your main branch name if it's different
+      - main # Adjust the branch name if necessary
 
 jobs:
   build_and_preview:
-    runs-on: ubuntu-latest
     if: ${{ github.event.pull_request.head.repo.full_name == github.repository }}
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
