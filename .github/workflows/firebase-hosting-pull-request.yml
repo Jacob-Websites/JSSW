@@ -1,23 +1,22 @@
-name: Deploy to Firebase Hosting on PR
+name: Deploy to Firebase Hosting on merge
 
 on:
   pull_request:
     branches:
-      - main # Adjust the branch name if necessary
+      - main
 
 jobs:
-  build_and_preview:
-    if: ${{ github.event.pull_request.head.repo.full_name == github.repository }}
+  build_and_deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
       # No build step is needed for HTML/CSS only projects
 
       - name: Deploy to Firebase Hosting
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
-          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_TEST_1_CD7E8 }}
-          projectId: test-1-cd7e8
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_OTPT_777EO }}
+          channelId: live
+          projectId: otpt-777eo
