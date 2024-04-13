@@ -1,5 +1,5 @@
 
-name: Deploy to Firebase Hosting on merge
+name: Deploy to Production Website
 on:
   push:
     branches:
@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@v4
       # No build step is needed for HTML/CSS only projects
 
-      - name: Deploy to Firebase Hosting
+      - name: Deploying to Production Website
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
