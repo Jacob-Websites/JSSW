@@ -8,9 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="manifest" href="site.webmanifest">
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Ensures optimal rendering on mobile devices. -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" /> <!-- Optimal Internet Explorer compatibility -->
-    <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
+
 	<!-- CSS here -->
 	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="assets/css/owl.carousel.min.css">
@@ -26,18 +24,16 @@
 	<link rel="stylesheet" href="assets/css/slick.css">
 	<link rel="stylesheet" href="assets/css/nice-select.css">
 	<link rel="stylesheet" href="assets/css/style.css">
+  <!-- AngularJS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
 
-    <!-- AngularJS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
 
-    <!-- Firebase -->
-    <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
-
-    <!-- AngularFire -->
-    <script src="https://cdn.firebase.com/libs/angularfire/2.0.2/angularfire.min.js"></script>  
-  
+  <!-- AngularFire -->
+  <script src="https://cdn.firebase.com/libs/angularfire/2.0.2/angularfire.min.js"></script>
 </head>
-<body ng-app="myApp" ng-controller="MyCtrl as ctrl">
+<body ng-app="MyApp" ng-controller="MyCtrl as ctrl">
     <!-- ? Preloader Start -->
     <div id="preloader-active">
         <div class="preloader d-flex align-items-center justify-content-center">
@@ -59,20 +55,11 @@
                         <div class="col-xl-12">
                             <div class="row d-flex justify-content-between align-items-center">
                                 <div class="header-info-left d-flex">
-                                    <ul class="text-center">     
+                                    <ul>     
                                         <li>Phone: +91 {{contacts.phone}}</li>
                                         <li>Email: {{contacts.email}}</li>
                                     </ul>
-                                    <!-- <div class="header-social">    
-                                         <ul>
-                                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                            <li><a  href="https://www.facebook.com/sai4ull"><i class="fab fa-facebook-f"></i></a></li>
-                                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                            <li> <a href="#"><i class="fab fa-google-plus-g"></i></a></li>
-                                        </ul> 
-                                    </div> -->
                                 </div>
-                                
                             </div>
                         </div>
                     </div>
@@ -135,242 +122,155 @@
     </header>
     <!-- header end -->
     <main>
-    <!-- slider Area Start-->
-    <div class="slider-area">
-        <div class="slider-active">
-            <!-- Single Slider -->
-            <div class="single-slider slider-height d-flex align-items-center">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-6 col-lg-6 col-md-8 col-sm-10">
-                            <div class="hero__caption">
-                                <h1 data-animation="fadeInUp" data-delay=".6s" class="text-white">{{main.title}}</h1>
-                                <P data-animation="fadeInUp" data-delay=".8s" class="text-white">{{main.description}}</P>
-                               
-                            </div>
+    <!--? Hero Start -->
+    <div class="slider-area2">
+        <div class="slider-height2 d-flex align-items-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="hero-cap hero-cap2 pt-20 text-center">
+                            <h2>Gallery</h2>
                         </div>
                     </div>
                 </div>
             </div>
-           
         </div>
     </div>
-    <!-- slider Area End-->
-    <!--? Services Area Start -->
-    <div class="service-area section-padding30">
+    <!-- Hero End -->
+    
+    <!-- Featured_job_start -->
+    <section class="featured-job-area section-padding30 section-bg2" data-background="assets/img/gallery/section_bg03.png">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-xl-6 col-lg-7 col-md-10 col-sm-10">
+                <div class="col-xl-7 col-lg-9 col-md-10 col-sm-12">
                     <!-- Section Tittle -->
                     <div class="section-tittle text-center mb-80">
-                        <span>What we are doing</span>
-                        <h2>We Are In A Mission To Help The Helpless</h2>
+                        <span>What we done in past Social Activities</span>
+                        <h2>Slum Children & Education Support</h2>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-6 col-sm-6 mb-5" ng-repeat="x in gospeldata" style="min-height: 100%;">
-                    <div class="single-cat text-center mb-50" style="min-height: 100%;">
-                        <div class="cat-icon">
-                            <span class="flaticon"><img src="./assets/icons/{{x.activities}}.png"></span>
-                            
-                        </div>
-                        <div class="cat-cap">
-                            <h5><a href="{{x.links}}">{{x.activities}}</a></h5>
-                            <p>{{x.description}}</p>
-                        </div>
-                    </div>
-                </div>
-                
-               
-            </div>
-        </div>
-    </div>
-    <!-- Services Area End -->
-    <!--? About Law Start-->
-    <section class="about-low-area section-padding2">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-md-10" >
-                    <div class="about-caption mb-50">
-                        <!-- Section Tittle -->
-                        <div class="section-tittle mb-35">
-                            <span>About our foundation</span>
-                            <h2>JSSWM is a non-profitable voluntary organization serves the needy focusing there to aplip in the needy people such as Slum,Leper,Tribal-Communities living in context proverty and injustice to become self-sufficient and bring lasting change, over a decade. </h2><br>
-                            <h2>Hanoch Putra, Founder and President,  Jacob Sundar Putra, Vice-President- working  through the committee, every month there is a council meeting to finalize the charity activities through resolutions passed by the committee.</h2><br>
-                            <h2 class="text-bold text-uppercase">Vision:  Know Jesus And Make Him Known With Love And Care. Serving All The Needy With No Caste And Creed</h2>
-                            <h2 ></h2><br>
-                            <h2>“i Was Hungry And You Gave Me Something To Eat, I Was Thirsty And You Gave Me Something To Drink, I Was Stranger And You Invited Me In, I Needed Clothes And You Clothed Me, I Was Sick And You Looked After Me, I Was In Prison And You Came To Visit Me” [matthew 25:35-37]</h2><br>
-                            <h2>the total population of India is 150 crore [1500 million]
-                                Christians 3.22 crores [32 millions]
-                                The goal of JSSWM is to reach the unreached
-                                </h2>
-                        </div>
-                        <p><b>1.Child Health and Nutrition</b><br><b>2.Education</b><br><b>3.Livelihood and Resilience</b><br><b>4.Gender and Women Empowerment</b><br><b>5.Disability</b></p>
+            <div class="slider">
+                <div class="slide">
+                      <img src="assets/img/Slum children & Education Support/IMG-20231003-WA0010.jpg">
+                  </div>
+                <div class="slide">
+                      <img src="assets/img/Slum children & Education Support/IMG-6961.jpg" alt="Photo3"/>
+                  </div>
 
-                    </div>
-                    <a href="about.html" class="btn">About US</a>
-                </div>
-                <div class="col-lg-6 col-md-12">
-                    <!-- about-img -->
-                    <div class="about-img " >
-                        <div class="about-font-img d-none d-lg-block">
-                            <img src="assets/img/gallery/about2.png" alt="">
-                        </div>
-                        <div class="about-back-img ">
-                            <img src="assets/img/gallery/about1.png" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- <div class="our-cases-area section-padding30">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-xl-6 col-lg-7 col-md-10 col-sm-10">
-   
-                    <div class="section-tittle text-center mb-80">
-                        <span>Our Cases you can see</span>
-                        <h2>Explore our latest causes that we works </h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="single-cases mb-40">
-                        <div class="cases-img">
-                            <img src="assets/img/gallery/case1.png" alt="">
-                        </div>
-                        <div class="cases-caption">
-                            <h3><a href="#">Ensure Education For Every Poor Children</a></h3>
-                            
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="single-cases mb-40">
-                        <div class="cases-img">
-                            <img src="assets/img/gallery/case2.png" alt="">
-                        </div>
-                        <div class="cases-caption">
-                            <h3><a href="#">Providing Healthy Food For The Children</a></h3>
-                           
-                           
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="single-cases mb-40">
-                        <div class="cases-img">
-                            <img src="assets/img/gallery/case3.png" alt="">
-                        </div>
-                        <div class="cases-caption">
-                            <h3><a href="#">Supply Drinking Water For  The People</a></h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-   -->
-    <!--? Team Ara Start -->
-    <div class="team-area pt-160 pb-160">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-xl-6 col-lg-7 col-md-10 col-sm-10">
-                    <!-- Section Tittle -->
-                    <div class="section-tittle section-tittle2 text-center mb-70">
-                        <span>What we are doing</span>
-                        <h2>Our Jsswm Founders</h2>
-                    </div> 
-                </div>
-            </div>
-            <div class="row" >
-                <div class="col-lg-3 col-md-6 col-sm-6" ng-repeat="x in founderslist">
-                    <div class="single-team mb-30" >
-                        <div class="team-img">
-                            <img src="assets/founders/{{x.name}}.jpg" alt="">
-                            <!-- Blog Social -->
-                            <!-- <ul class="team-social">
-                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fas fa-globe"></i></a></li>
-                            </ul> -->
-                        </div>
-                        <div class="team-caption">
-                            <h3><a href="instructor.html">{{x.name}}</a></h3>
-                            <p>{{x.designation}}</p>
-                        </div>
-                    </div>
-                </div>
+                   <div class="slide">
+                      <img src="assets/img/Slum children & Education Support/IMG-20231002-WA0081.jpg" alt="Photo3"/>
+
+                  </div> 
+                   <div class="slide">
+                      <img src="assets/img/Slum children & Education Support/IMG-20231002-WA0089.jpg" alt="Photo3"/>
+
+                  </div> 
+                   <div class="slide">
+                      <img src="assets/img/Slum children & Education Support/IMG-20231002-WA0092.jpg" alt="Photo3"/>
+
+                  </div> 
+
+                <div class="slide">
+                      <img src="assets/img/Slum children & Education Support/IMG-6945.jpg" alt="Photo2"/>
+                  </div>
+                <div class="slide">
+                      <img src="assets/img/Slum children & Education Support/IMG-6938.jpg" alt="Photo3"/>
+                  </div> 
               
+                  <div class="slide">
+                    <img src="assets/img/Slum children & Education Support/IMG-6802.jpg" alt="Photo3"/>
+                </div> 
                 
-            </div>
-        </div>
-    </div>
-   
-
-    <!-- <div class="testimonial-area testimonial-padding">
-        <div class="container">
-            <div class="section-tittle text-center mb-80">
-                <span>Testimonys</span>
-                <h2>Explore our latest causes that we works </h2>
-            </div>
-
-            <div class="row d-flex justify-content-center">
-                <div class="col-xl-8 col-lg-8 col-md-10">
-                    <div class="h1-testimonial-active dot-style">
-                        <div class="single-testimonial text-center">
-                            <div class="testimonial-caption ">
-                                <div class="testimonial-founder">
-                                    <div class="founder-img mb-40">
-                                        <img src="assets/img/gallery/testimonial.png" alt="">
-                                        <span>Margaret Lawson</span>
-                                        <p>Creative Director</p>
-                                    </div>
-                                </div>
-                                <div class="testimonial-top-cap">
-                                    <p>“I am at an age where I just want to be fit and healthy our bodies are our responsibility! So start caring for your body and it will care for you. Eat clean it will care for you and workout hard.”</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="single-testimonial text-center">
-                            <div class="testimonial-caption ">
-                                <div class="testimonial-founder">
-                                    <div class="founder-img mb-40">
-                                        <img src="assets/img/gallery/testimonial.png" alt="">
-                                        <span>Margaret Lawson</span>
-                                        <p>Creative Director</p>
-                                    </div>
-                                </div>
-                                <div class="testimonial-top-cap">
-                                    <p>“I am at an age where I just want to be fit and healthy our bodies are our responsibility! So start caring for your body and it will care for you. Eat clean it will care for you and workout hard.”</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="single-testimonial text-center">
-                            <div class="testimonial-caption ">
-                                <div class="testimonial-founder">
-                                    <div class="founder-img mb-40">
-                                        <img src="assets/img/gallery/testimonial.png" alt="">
-                                        <span>Margaret Lawson</span>
-                                        <p>Creative Director</p>
-                                    </div>
-                                </div>
-                                <div class="testimonial-top-cap">
-                                    <p>“I am at an age where I just want to be fit and healthy our bodies are our responsibility! So start caring for your body and it will care for you. Eat clean it will care for you and workout hard.”</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="slide">
+                    <img src="assets/img/Slum children & Education Support/1628777792185.JPG" alt="Photo3"/>
+                </div> 
+                
+                <div class="slide">
+                    <img src="assets/img/Slum children & Education Support/IMG-3479.JPG" alt="Photo3"/>
+                </div> 
+                
+                <div class="slide">
+                    <img src="assets/img/Slum children & Education Support/IMG-9201.JPG" alt="Photo3"/>
+                </div> 
+                
+                <div class="slide">
+                    <img src="assets/img/Slum children & Education Support/IMG20210811111948-01.JPG" alt="Photo3"/>
+                </div> 
+                
+                <div class="slide">
+                    <img src="assets/img/Slum children & Education Support/IMG20210811112137-01.JPG" alt="Photo3"/>
                 </div>
+                
+                <div class="slide">
+                    <img src="assets/img/Slum children & Education Support/IMG20210811181406.JPG" alt="Photo3"/>
+                </div> 
+                
+                <div class="slide">
+                    <img src="assets/img/Slum children & Education Support/IMG20210811183737.JPG" alt="Photo3"/>
+                </div>
+                
+                <div class="slide">
+                    <img src="assets/img/Slum children & Education Support/IMG20211219162006.JPG" alt="Photo3"/>
+                </div>
+                
+                <div class="slide">
+                    <img src="assets/img/Slum children & Education Support/IMG-6770.jpg" alt="Photo3"/>
+                </div>
+                
+                <div class="slide">
+                    <img src="assets/img/Slum children & Education Support/IMG-9103.jpg" alt="Photo3"/>
+                </div>
+                 <div class="slide">
+                    <img src="assets/img/Slum children & Education Support/IMG_20230806_140438.jpg" alt="Photo3"/>
+                </div>
+                <div class="slide">
+                    <img src="assets/img/Slum children & Education Support/WhatsApp Image 2023-12-31 at 3.45.57 PM (1).jpeg"/>
+                </div>
+                <div class="slide">
+                    <img src="assets/img/Slum children & Education Support/WhatsApp Image 2023-12-31 at 3.45.58 PM.jpeg"/>
+                </div>
+               <div class="slide">
+                <img src="assets/img/Slum children & Education Support/WhatsApp Image 2023-12-31 at 3.46.31 PM (1).jpeg"/>
+               </div>
+               <div class="slide">
+                <img src="assets/img/Slum children & Education Support/WhatsApp Image 2023-12-31 at 3.45.57 PM.jpeg"/>
+               </div>
+                
+                
+
+                  <button class="btn-slide prev"><i class="fa fa-3x fa-chevron-circle-left"></i></button>
+                  <button class="btn-slide next"><i class="fa fa-3x fa-chevron-circle-right"></i></button>
+                
+              </div>
+              <div class="dots-container">
+                      <span class="dot active" data-slide="0"></span>
+                      <span class="dot" data-slide="1"></span>
+                      <span class="dot" data-slide="2"></span>
+                <span class="dot" data-slide="3"></span>
+                <span class="dot" data-slide="4"></span>
+                <span class="dot" data-slide="5"></span>
+                <span class="dot" data-slide="6"></span>
+                <span class="dot" data-slide="7"></span>
+                <span class="dot" data-slide="8"></span>
+                <span class="dot" data-slide="9"></span>
+                <span class="dot" data-slide="10"></span>
+                <span class="dot" data-slide="11"></span>
+                <span class="dot" data-slide="12"></span>
+                <span class="dot" data-slide="13"></span>
+                <span class="dot" data-slide="14"></span>
+                <span class="dot" data-slide="15"></span>
+                <span class="dot" data-slide="16"></span>
+                <span class="dot" data-slide="17"></span>
+                <span class="dot" data-slide="18"></span>
+                <span class="dot" data-slide="19"></span>
+                <span class="dot" data-slide="20"></span>
+                <span class="dot" data-slide="21"></span>
+                <span class="dot" data-slide="22"></span>
+              </div>
             </div>
-        </div>
-    </div>
-   -->
-   
-   
+    </section>
+    <!-- Featured_job_end -->
     </main>
     <footer>
         <div class="footer-wrapper section-bg2" data-background="assets/img/gallery/footer_bg.png">
@@ -379,15 +279,15 @@
                 <div class="container">
                     <div class="row d-flex justify-content-between">
                         <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                        <div class="single-footer-caption mb-50">
-                            <div class="single-footer-caption mb-30">
-                                <div class="footer-tittle">
-                                    <div class="footer-logo mb-20">
-                                        <a href="index.html"><img src="assets/img/logo/2.png" width="250px" alt=""></a>
+                            <div class="single-footer-caption mb-50">
+                                <div class="single-footer-caption mb-30">
+                                    <div class="footer-tittle">
+                                        <div class="footer-logo mb-20">
+                                            <a href="index.html"><img src="assets/img/logo/2.png" width="250px" alt=""></a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
                         </div>
                         <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
                             <div class="single-footer-caption mb-50">
@@ -401,7 +301,6 @@
                                         <li><a href="#">Email : {{contacts.email}}</a></li>
                                     </ul>
                                 </div>
-
                             </div>
                         </div>
                         <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
@@ -477,6 +376,7 @@
     <div id="back-top" >
         <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
     </div>
+    
 
     <!-- JS here -->
 
@@ -555,49 +455,180 @@
         animation: glowing 1300ms infinite;
       }
     </style>
-
-        <script>
+    <script>
         (function() {
-            // Initialize Firebase
-            const config = {
-                apiKey: "AIzaSyCTzzFhbwl7GxQBGmMsRNc44Xs1oaMIbGg",
-                authDomain: "otpt-777e0.firebaseapp.com",
-                databaseURL: "https://otpt-777e0-default-rtdb.firebaseio.com",
-                projectId: "otpt-777e0",
-                storageBucket: "otpt-777e0.appspot.com",
-                messagingSenderId: "591004492782",
-                appId: "1:591004492782:web:c2aed3bac9128b51e7a4ff",
-                measurementId: "G-M89CB7FSDR"
-              };
-              
-              // Initialize Firebase
-             
-            firebase.initializeApp(config);
-          
-            angular
-            .module('myApp', ['firebase'])
-            .controller('MyCtrl', function ($firebaseObject,$scope) {
-              
-                const rootRef = firebase.database().ref();
-                
-                
-                const dataRef = rootRef.child('/');
-                
-                
-                this.object = $firebaseObject(dataRef);
+    // Initialize Firebase
+    const config = {
+        apiKey: "AIzaSyCTzzFhbwl7GxQBGmMsRNc44Xs1oaMIbGg",
+        authDomain: "otpt-777e0.firebaseapp.com",
+        databaseURL: "https://otpt-777e0-default-rtdb.firebaseio.com",
+        projectId: "otpt-777e0",
+        storageBucket: "otpt-777e0.appspot.com",
+        messagingSenderId: "591004492782",
+        appId: "1:591004492782:web:c2aed3bac9128b51e7a4ff",
+        measurementId: "G-M89CB7FSDR"
+      };
+      
+      // Initialize Firebase
+     
+    firebase.initializeApp(config);
+  
+    angular
+    .module('MyApp', ['firebase'])
+    .controller('MyCtrl', function ($firebaseObject,$scope) {
+      
+        const rootRef = firebase.database().ref();
         
-               
-                this.object.$loaded()
-                    .then(function(data) {
-                        $scope.contacts=data[7].data[0];
-                        $scope.main=data[10].data[0];
-                        $scope.gospeldata=data[3].data;
-                        $scope.founderslist=data[9].data
-                    })
-                    .catch(function(error) {
-                        console.error("Error:", error);
-                    });
+        
+        const dataRef = rootRef.child('/');
+        
+        
+        this.object = $firebaseObject(dataRef);
+
+       
+        this.object.$loaded()
+            .then(function(data) {
+                $scope.contacts=data[7].data[0];
+
+            })
+            .catch(function(error) {
+                console.error("Error:", error);
             });
-        })();
+    });
+})();
     </script>
+        <style>
+            * {
+            margin: 0;
+            padding: 0;
+            box-sizing: inherit;
+          }
+          html {
+            font-size: 1rem;
+            box-sizing: border-box;
+          }
+          body {
+            width: 100%;
+            height: 100%;
+            color: #272727;
+            line-height: 1.9;
+            background-color: #f7f5f5;
+            font-family:Arial, Helvetica, sans-serif;
+          }
+          h2{
+              text-align: center;
+              font-size: 2rem;
+              line-height: 3.5;
+          }
+          .slider{
+              position: relative;
+               max-width: 40rem; 
+              height: 26.625rem; 
+              margin: 0 auto;
+              overflow: hidden;
+          }
+          .slide{ 
+              position: absolute;
+              top:0;
+              width: 100%;
+              height: 26.625rem;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              transition: transform 1s;
+          }
+          .slide > img{
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+          }
+          button{
+              background: none;
+              border: none;
+          }
+          button .fas{
+              color: black;
+          }
+          .btn-slide{
+              position:absolute;
+              top:50%;
+              z-index: 10;
+          
+              height: 5.5rem;
+              width: 5.5rem;
+              cursor: pointer;
+          }
+          .prev{
+              left:3rem;
+              transform: translate(-50%, -50%);
+          }
+          .next{
+              right: 3rem;
+              transform: translate(50%, -50%); 
+          }
+          .dots-container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+          }
+          .dot{
+              width: 25px;
+              height: 5px;
+              margin: 15px 5px;
+              border-radius: .5rem;
+              background: rgba(39,39,39, .5);
+              cursor: pointer;
+          }
+          .dot.active{
+          background:#272727;
+          }
+          </style>
+          <script>
+            function Slider() {
+              const carouselSlides = document.querySelectorAll('.slide');
+              const btnPrev = document.querySelector('.prev');
+              const btnNext = document.querySelector('.next');
+              const dotsSlide = document.querySelector('.dots-container');
+              let currentSlide = 0;
+            
+              const activeDot = function (slide) {
+                  document.querySelectorAll('.dot').forEach(dot => dot.classList.remove('active'));
+                  document.querySelector(`.dot[data-slide="${slide}"]`).classList.add('active');
+              };
+              activeDot(currentSlide);
+          
+              const changeSlide = function (slides) {
+                  carouselSlides.forEach((slide, index) => (slide.style.transform = `translateX(${100 * (index - slides)}%)`));
+              };
+              changeSlide(currentSlide);
+          
+              btnNext.addEventListener('click', function () {
+                  currentSlide++; 
+                  if (carouselSlides.length - 1 < currentSlide) {
+                      currentSlide = 0;
+                  };
+                  changeSlide(currentSlide);
+                  activeDot(currentSlide);
+          });
+              btnPrev.addEventListener('click', function () {
+                  currentSlide--;
+                  if (0 >= currentSlide) {
+                      currentSlide = 0;
+                  }; 
+                  changeSlide(currentSlide);
+                  activeDot(currentSlide);
+              });
+          
+              dotsSlide.addEventListener('click', function (e) {
+                  if (e.target.classList.contains('dot')) {
+                      const slide = e.target.dataset.slide;
+                      changeSlide(slide);
+                      activeDot(slide);
+                  }
+              });
+            };
+          Slider();
+          </script>
+   
 </html>

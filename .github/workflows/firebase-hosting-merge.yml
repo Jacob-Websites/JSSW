@@ -1,22 +1,32 @@
-name: Deploy to Firebase Hosting on merge
+name: ESLint check and deploy to Firebase Hosting on merge
+
 on:
   push:
     branches:
       - main
 
 jobs:
-  build_and_deploy:
+  lintvalidationanddeploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
-      # No build step is needed for HTML/CSS only projects
-
-      - name: Deploy to Firebase Hosting
-        uses: FirebaseExtended/action-hosting-deploy@v0
+      
+      - name: Use Node.js
+        uses: actions/setup-node@v2
         with:
-          repoToken: ${{ secrets.GITHUB_TOKEN }}
-          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_TEST_1_CD7E8 }}
-          channelId: live
-          projectId: test-1-cd7e8
+          node-version: '14'
+      
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run build
+
+      - name: ESLint
+        run: npm run eslint # replace with your linting command
+      
+      - name: Deploy to Firebase Hosting
+        run: |
+          npm install -g firebase-tools
+          firebase deploy --token $FIREBASE_TOKEN --project $FIREBASE_PROJECT_ID --channel live
