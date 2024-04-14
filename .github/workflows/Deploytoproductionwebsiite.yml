@@ -8,6 +8,8 @@ on:
 jobs:
   DeployToProductionWebsite:
     runs-on: ubuntu-latest
+    environment:
+      name: Prod
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
