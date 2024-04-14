@@ -12,15 +12,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install dependencies
-        run: npm install
-        # Optionally, you may want to specify the working directory where npm install should be executed
-        # working-directory: path/to/your/project
-
-      - name: Build project
-        run: npm run build
-        # Optionally, you may want to specify the working directory where npm run build should be executed
-        # working-directory: path/to/your/project
+      
 
   DeployInitiated:
     runs-on: ubuntu-latest
