@@ -4,14 +4,13 @@ on:
   push:
     branches:
       - main
+
 jobs:
   DeployToProductionWebsite:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
-      
 
   DeployInitiated:
     runs-on: ubuntu-latest
@@ -22,6 +21,15 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+      - name: SonarCloud Scan
+        uses: sonarsource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: 4a2b7f533dcf43a8c408775904b5737452949085
+        with:
+          organization: "jacob-websites"
+          projectKey: "Jacob-Websites_JacobWebsite"
+          projectName: "JacobWebsite"
 
       - name: Deploying to Production Website
         uses: FirebaseExtended/action-hosting-deploy@v0
