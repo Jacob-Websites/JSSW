@@ -12,16 +12,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-  DeployInitiated:
+  SonarqubeDeploy:
     runs-on: ubuntu-latest
     needs: DeployToProductionWebsite
-    if: ${{ success() }}
-    environment:
-      name: Prod
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-      
       - name: SonarCloud Scan
         uses: sonarsource/sonarcloud-github-action@master
         env:
@@ -34,6 +28,15 @@ jobs:
             -Dsonar.projectName="JacobWebsite"
           projectBaseDir: .
 
+  DeployInitiated:
+    runs-on: ubuntu-latest
+    needs: 
+      - DeployToProductionWebsite
+      - SonarqubeDeploy
+    if: ${{ success() }}
+    environment:
+      name: Prod
+    steps:
       - name: Deploying to Production Website
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
