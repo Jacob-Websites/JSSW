@@ -1,5 +1,5 @@
-
 name: Deploy to Production Website
+
 on:
   push:
     branches:
@@ -8,17 +8,32 @@ on:
 jobs:
   DeployToProductionWebsite:
     runs-on: ubuntu-latest
-    environment:
-      name: Prod
+   
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      # No build step is needed for HTML/CSS only projects
 
-      - name: Deploying to Production Website
-        uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
-          repoToken: ${{ secrets.GITHUB_TOKEN }}
-          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
-          channelId: live
-          projectId: otpt-777e0
+      - name: Install dependencies
+        run: npm install
+        # Optionally, you may want to specify the working directory where npm install should be executed
+        # working-directory: path/to/your/project
+
+      - name: Build project
+        run: npm run build
+        # Optionally, you may want to specify the working directory where npm run build should be executed
+        # working-directory: path/to/your/project
+        jobs:
+          Deploy Initated:
+            runs-on: ubuntu-latest
+             environment:
+              name: Prod
+              steps:
+              - name: Checkout repository
+                uses: actions/checkout@v4
+              - name: Deploying to Production Website
+                uses: FirebaseExtended/action-hosting-deploy@v0
+                with:
+                  repoToken: ${{ secrets.GITHUB_TOKEN }}
+                  firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+                  channelId: live
+                  projectId: otpt-777e0
