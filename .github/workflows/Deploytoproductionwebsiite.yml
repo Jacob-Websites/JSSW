@@ -21,16 +21,17 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      - name: SonarCloud Scan
-        uses: sonarsource/sonarcloud-github-action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: 4a2b7f533dcf43a8c408775904b5737452949085
-        with:
-         args: >
-          -Dsonar.organization: "jacob-websites"
-          -Dsonar.projectKey: "Jacob-Websites_JacobWebsite"
-          -Dsonar.projectName: "JacobWebsite"
+     - name: SonarCloud Scan
+  uses: sonarsource/sonarcloud-github-action@master
+  env:
+    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+  with:
+    args: >
+      -Dsonar.organization=jacob-websites
+      -Dsonar.projectKey=Jacob-Websites_JacobWebsite
+      -Dsonar.projectName="JacobWebsite"
+    projectBaseDir: .
 
       - name: Deploying to Production Website
         uses: FirebaseExtended/action-hosting-deploy@v0
