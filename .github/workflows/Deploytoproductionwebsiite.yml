@@ -31,8 +31,8 @@ jobs:
   DeployInitiated:
     runs-on: ubuntu-latest
     needs: 
-      - DeployToProductionWebsite
       - SonarqubeDeploy
+      - DeployToProductionWebsite
     if: ${{ success() }}
     environment:
       name: Prod
