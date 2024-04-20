@@ -10,9 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2  # Updated to v2
+        uses: actions/checkout@v4
 
-  SonarqubeDeploy:
+      SonarqubeDeploy:
     runs-on: ubuntu-latest
     needs: DeployToProductionWebsite
     steps:
@@ -26,16 +26,16 @@ jobs:
             -Dsonar.organization=jacob-websites
             -Dsonar.projectKey=Jacob-Websites_JacobWebsite
             -Dsonar.projectName="JacobWebsite"
-          projectBaseDir: .  # Assuming SonarQube analysis is done from the root directory
+          projectBaseDir: . 
 
   DeployInitiated:
     runs-on: ubuntu-latest
-    needs: 
-      - SonarqubeDeploy  # Adjusted dependency
-    if: ${{ success() }}
     environment:
       name: Prod
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Deploying to Production Website
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
@@ -43,4 +43,3 @@ jobs:
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
           channelId: live
           projectId: otpt-777e0
-          entryPoint: ../firebase.json
