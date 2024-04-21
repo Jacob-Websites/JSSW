@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+
 jobs:
   DeployToProductionWebsite:
     runs-on: ubuntu-latest
@@ -11,7 +12,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: SonarCloud Scan
+      - name: SonarQube Scan
         uses: sonarsource/sonarcloud-github-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -22,6 +23,12 @@ jobs:
             -Dsonar.projectKey=Jacob-Websites_JacobWebsite
             -Dsonar.projectName="JacobWebsite"
           projectBaseDir: .
+
+      - name: Upload code artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: code
+          path: .
 
   DeployInitiated:
     runs-on: ubuntu-latest
