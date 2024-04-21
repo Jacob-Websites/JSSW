@@ -27,7 +27,7 @@ jobs:
       - name: Upload code artifact
         uses: actions/upload-artifact@v2
         with:
-          name: code
+          name: JSSW Production Code
           path: .
 
   release-project:
@@ -39,7 +39,7 @@ jobs:
       - name: Download artifact
         uses: actions/download-artifact@v3
         with:
-          name: code
+          name: JSSW Production Code
           path: .
 
       - name: Deploying to Production Website
