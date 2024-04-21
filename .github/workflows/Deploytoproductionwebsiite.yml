@@ -32,8 +32,8 @@ jobs:
 
   release-project:
     runs-on: ubuntu-latest
-    # environment:
-    #   name: Prod
+    environment:
+      name: Prod
     needs: DeployToProductionWebsite
     steps:
       - name: Download artifact
