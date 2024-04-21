@@ -1,0 +1,9 @@
+# Default reviews/codeowners for all code changes
+* @prabhutejad
+# Reviewer by email for html files
+*.html prabhuteja.iot@gmail.com
+
+# Reviewer by organization
+*.txt @organizationName/TeamName
+# Reviewer by specific folders 
+/folder1 /folder2 @prabhutejad @prabhuteja.iot@gmail.com
