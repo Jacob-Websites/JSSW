@@ -21,8 +21,15 @@
     <link rel="stylesheet" href="assets/css/slick.css">
     <link rel="stylesheet" href="assets/css/nice-select.css">
     <link rel="stylesheet" href="assets/css/style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 
+    <!-- AngularJS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+
+    <!-- AngularFire -->
+    <script src="https://cdn.firebase.com/libs/angularfire/2.0.2/angularfire.min.js"></script>
 </head>
 <style>
     .button {
@@ -57,7 +64,7 @@
     animation: glowing 1300ms infinite;
   }
 </style>
-<body  ng-app="myApp" ng-controller="myCtrl">
+<body ng-app="myApp" ng-controller="MyCtrl as ctrl">
     <!--? Preloader Start -->
     <div id="preloader-active">
         <div class="preloader d-flex align-items-center justify-content-center">
@@ -80,8 +87,8 @@
                             <div class="row d-flex justify-content-between align-items-center">
                                 <div class="header-info-left d-flex">
                                     <ul>     
-                                        <li>Phone: +91 {{contacts.phone}}</li>
-                                        <li>Email: {{contacts.email}}</li>
+                                        <li>Phone: +91 {{phoneNumber}}</li>
+                                        <li>Email: {{email}}</li>
                                     </ul>
                                    
                                 </div>
@@ -367,6 +374,49 @@
      
     </body>
     
+    <script>
+        (function() {
+            // Initialize Firebase
+            const config = {
+                apiKey: "AIzaSyCTzzFhbwl7GxQBGmMsRNc44Xs1oaMIbGg",
+                authDomain: "otpt-777e0.firebaseapp.com",
+                databaseURL: "https://otpt-777e0-default-rtdb.firebaseio.com",
+                projectId: "otpt-777e0",
+                storageBucket: "otpt-777e0.appspot.com",
+                messagingSenderId: "591004492782",
+                appId: "1:591004492782:web:c2aed3bac9128b51e7a4ff",
+                measurementId: "G-M89CB7FSDR"
+              };
+              
+              // Initialize Firebase
+             
+            firebase.initializeApp(config);
+          
+            angular
+            .module('myApp', ['firebase'])
+            .controller('MyCtrl', function ($firebaseObject,$scope) {
+              
+                const rootRef = firebase.database().ref();
+                
+                
+                const dataRef = rootRef.child('/');
+                
+                
+                this.object = $firebaseObject(dataRef);
+        
+               
+                this.object.$loaded()
+                    .then(function(data) {
+                        console.log(data)
+                        $scope.phoneNumber=data[7].data[0].phone;
+                        $scope.email=data[7].data[0].email;
+                    })
+                    .catch(function(error) {
+                        console.error("Error:", error);
+                    });
+            });
+        })();
+    </script>
         
    
 </html>
