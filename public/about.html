@@ -436,33 +436,7 @@
     
     </body>
 
-    <script>
-        var app = angular.module('myApp', []);
-        app.controller('myCtrl', function($scope,$http) {
-           
-            
-            var apipath="https://jswwapis.cyclic.app";
-            //var apipath='http://localhost:3000'
-            
-            $http.get(apipath+'/api/foundation').then(function(response){
-              //  console.log(response)
-                $scope.aboutfoundation=response.data.message[0]
-            })
-            $http.get(apipath+'/api/acitivity').then(function(response){
-                //console.log(response)
-                $scope.gospeldata=response.data.data
-                console.log($scope.gospeldata)
-            })
-            $http.get(apipath+'/api/main').then(function(response){
-                console.log(response)
-                $scope.main=response.data.data[0]
-            })
-            $http.get(apipath+'/api/contacts').then(function(response){
-                console.log(response)
-                $scope.contacts=response.data.message[0]
-            })
-        });
-        </script>
+    
        <script>
         (function() {
             // Initialize Firebase
