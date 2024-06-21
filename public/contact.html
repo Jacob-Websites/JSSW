@@ -366,41 +366,7 @@
       <script src="./assets/js/main.js"></script>
      
     </body>
-    <script>
-        var app = angular.module('myApp', []);
-        app.controller('myCtrl', function($scope,$http) {
-          // alert("test")
-            
-            var apipath="https://jswwapisssssss.cyclic.app";
-            //var apipath='http://localhost:3000'
-            
-            $http.get(apipath+'/api/foundation').then(function(response){
-              //  console.log(response)
-                $scope.aboutfoundation=response.data.message[0]
-            })
-            $http.get(apipath+'/api/acitivity').then(function(response){
-                //console.log(response)
-                $scope.gospeldata=response.data.data
-            })
-            $http.get(apipath+'/api/main').then(function(response){
-             
-                $scope.main=response.data.data[0]
-            })
-            $http.get(apipath+'/api/contacts').then(function(response){
-                console.log(response)
-                $scope.contacts=response.data.message[0]
-            })
-            
-           
-           
-
-
-
-
-
-
-        });
-        </script>
+    
         
    
 </html>
