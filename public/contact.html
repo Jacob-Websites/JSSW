@@ -407,7 +407,6 @@
                
                 this.object.$loaded()
                     .then(function(data) {
-                        console.log(data)
                         $scope.phoneNumber=data[7].data[0].phone;
                         $scope.email=data[7].data[0].email;
                     })
