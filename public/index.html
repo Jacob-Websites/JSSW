@@ -106,14 +106,14 @@
                                                         <li><a href="pastor's & Bible Women.html">Pastor's & Bible Women</a></li>
                                                         <li><a href="phisicaly challengd.html">physcially challenged</a></li>
                                                         <li><a href="Sewing machine Program.html">Sewing machine Program</a></li>
-                                                        <li><a href="Slum children & Education Support.html">Slum children & Education Support</a></li>
+                                                        <li><a href="Slum children & Education Support.html">Orphan & Semi-Orphan Children</a></li>
                                                         <li><a href="Tribal Evangelists Meeting Pic.html">Tribal Evangelists Meeting Pic</a></li>
                                                         <li><a href="Widows program.html">Widows program</a></li>
                                                         <li><a href="JSSW Ministries News paper Pics.html">JSSW Ministries News paper Pics</a></li>
                                                     </ul>
                                                 </li>
                                                 <li><a href="videos.html">Videos</a></li>
-                                                <li><a href="upcoming.html">Upcoming Projects</a></li>
+                                                <li><a href="upcoming.html">Upcoming Project Requirements</a></li>
                                                 <li><a href="contact.html">Contact</a></li>
                                            <li><button class="button"onclick="window.location.href='donate.html'">Donate</button></li>                                               
                                             </ul>
@@ -299,7 +299,7 @@
                             </ul> -->
                         </div>
                         <div class="team-caption">
-                            <h3><a href="instructor.html">{{x.name}}</a></h3>
+                            <h3><a href="#">{{x.name}}</a></h3>
                             <p>{{x.designation}}</p>
                         </div>
                     </div>
@@ -592,7 +592,8 @@
                         $scope.contacts=data[7].data[0];
                         $scope.main=data[10].data[0];
                         $scope.gospeldata=data[3].data;
-                        $scope.founderslist=data[9].data
+                        $scope.founderslist=data[9].data;
+                        console.log($scope.founderslist)
                     })
                     .catch(function(error) {
                         console.error("Error:", error);
