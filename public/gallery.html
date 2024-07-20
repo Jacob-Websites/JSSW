@@ -25,8 +25,37 @@
 	<link rel="stylesheet" href="assets/css/nice-select.css">
 	<link rel="stylesheet" href="assets/css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <style>
+        div.gallery {
+            margin: 5px;
+            border: 1px solid #ccc;
+            float: left;
+            width: 200px; /* Increased width */
+            height: 225px; /* Fixed height for the card */
+            cursor: pointer;
+            overflow: hidden; /* Ensures content doesn't overflow the card */
+        }
+
+        div.gallery:hover {
+            border: 1px solid #09cc7f;
+        }
+
+        div.gallery img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures the image covers the card without stretching */
+            display: block;
+        }
+
+        div.desc {
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+
 </head>
 <body ng-app="MyApp" ng-controller="MyCtrl as ctrl">
+   
     <!-- ? Preloader Start -->
     <div id="preloader-active">
         <div class="preloader d-flex align-items-center justify-content-center">
@@ -76,8 +105,7 @@
                                                 <li><a href="about.html">About</a></li>
                                                 <!-- <li><a href="program.html">latest causes</a></li> -->
                                                 <li><a href="events.html">social events </a></li>
-                                                                                        <li><a href="gallery.html">Gallery</a></li>
-
+                                                <li><a href="gallery.html">Gallery</a></li>
                                                 <li><a href="videos.html">Videos</a></li>
                                                 <li><a href="upcoming.html">Upcoming Project Requirements</a></li>
                                                 <li><a href="contact.html">Contact</a></li>
@@ -125,176 +153,24 @@
                     <!-- Section Tittle -->
                     <div class="section-tittle text-center mb-80">
                         <span>What we done in past Social Activities</span>
-                        <h2>Church Plantation & Borwell</h2>
+                        <h2>Gallery</h2>
                     </div>
                 </div>
             </div>
-            <div class="slider">
-              <div class="slide">
-                    <img src="assets/img/Church Plantation & Borwell/IMG-8682.jpg"  alt="Photo1"/>
-                </div>
-              <div class="slide">
-                    <img src="assets/img/Church Plantation & Borwell/IMG-5545.jpg" alt="Photo3"/>
-                </div> 
-              <div class="slide">
-                    <img src="assets/img/Church Plantation & Borwell/IMG-5554.jpg" alt="Photo2"/>
-                </div>
-              <div class="slide">
-                    <img src="assets/img/Church Plantation & Borwell/IMG-8586.jpg" alt="Photo3"/>
-                </div> 
-               
-              
-           
-          <div class="slide">
-            <img src="assets/img/Church Plantation & Borwell/IMG-9869.jpg" alt="Photo3"/>
-        </div> 
-       
-      <div class="slide">
-        <img src="assets/img/Church Plantation & Borwell/IMG-9697.jpg" alt="Photo3"/>
-    </div> 
-    <div class="slide">
-      <img src="assets/img/Church Plantation & Borwell/IMG-9860.jpg" alt="Photo3"/>
-  </div> 
-   
-  <div class="slide">
-    <img src="assets/img/Church Plantation & Borwell/IMG-8709.jpg" alt="Photo3"/>
-</div> 
+            <div class=" card gallery" ng-repeat="x in FinalData">
+                <a target="_blank" href={{x.link}}>
+                  <img src={{x.image}} alt="Jssw Ministries" width="600" height="800">
+                </a>
+                <div class="desc" href="#">{{x.name}}</div>
+              </div>
+          </div>
+          <div>
 
-<div class="slide">
-  <img src="assets/img/Church Plantation & Borwell/IMG-20230725-WA0028.jpg" alt="Photo3"/>
-</div> 
-
-<div class="slide">
-  <img src="assets/img/Church Plantation & Borwell/IMG-5522.jpg" alt="Photo3"/>
-</div>        
-
-<div class="slide">
-  <img src="assets/img/Church Plantation & Borwell/IMG-20230725-WA0029.jpg" alt="Photo3"/>
-</div> 
-
-<div class="slide">
-  <img src="assets/img/Church Plantation & Borwell/IMG-20230725-WA0030.jpg" alt="Photo3"/>
-</div> 
-<div class="slide">
-  <img src="assets/img/Church Plantation & Borwell/IMG-20230725-WA0031.jpg" alt="Photo3"/>
-</div> 
-<div class="slide">
-  <img src="assets/img/Church Plantation & Borwell/IMG-20230725-WA0032.jpg" alt="Photo3"/>
-</div> 
-<div class="slide">
-  <img src="assets/img/Church Plantation & Borwell/IMG-20230725-WA0033.jpg" alt="Photo3"/>
-</div> 
-<div class="slide">
-  <img src="assets/img/Church Plantation & Borwell/IMG-20230725-WA0034.jpg" alt="Photo3"/>
-</div> 
-<div class="slide">
-  <img src="assets/img/Church Plantation & Borwell/IMG-20230725-WA0035.jpg" alt="Photo3"/>
-</div> 
-
-            
-                <button class="btn-slide prev " ><i class="fa fa-3x fa-chevron-circle-left"></i></button>
-                <button class="btn-slide next" ><i class="fa fa-3x fa-chevron-circle-right"></i></button>
-              
-            </div>
-            <div class="dots-container">
-                    <span class="dot active" data-slide="0"></span>
-                    <span class="dot" data-slide="1"></span>
-                    <span class="dot" data-slide="2"></span>
-              <span class="dot" data-slide="3"></span>
-              <span class="dot" data-slide="4"></span>
-              <span class="dot" data-slide="5"></span>
-              <span class="dot" data-slide="8"></span>
-              <span class="dot" data-slide="9"></span>
-              <span class="dot" data-slide="10"></span>
-              <span class="dot" data-slide="11"></span>
-              <span class="dot" data-slide="12"></span>
-              <span class="dot" data-slide="13"></span>
-              <span class="dot" data-slide="14"></span>
-              <span class="dot" data-slide="15"></span>
-              <span class="dot" data-slide="16"></span>
-              <span class="dot" data-slide="17"></span>
-              <span class="dot" data-slide="18"></span>
-
-            </div>
-            
           </div>
     </section>
     <!-- Featured_job_end -->
     </main>
-    <footer>
-        <div class="footer-wrapper section-bg2" data-background="assets/img/gallery/footer_bg.png">
-            <!-- Footer Top-->
-            <div class="footer-area footer-padding">
-                <div class="container">
-                    <div class="row d-flex justify-content-between">
-                        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                            <div class="single-footer-caption mb-50">
-                                <div class="single-footer-caption mb-30">
-                                    <div class="footer-tittle">
-                                        <div class="footer-logo mb-20">
-                                            <a href="index.html"><img src="assets/img/logo/2.png" width="250px" alt=""></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
-                            <div class="single-footer-caption mb-50">
-                                <div class="footer-tittle">
-                                    <h4>Contact Info</h4>
-                                    <ul>
-                                        <li>
-                                            <p>Address : {{contacts.address}}</p>
-                                        </li>
-                                        <li><a href="#">Phone : +91 {{contacts.phone}}</a></li>
-                                        <li><a href="#">Email : {{contacts.email}}</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
-                            <div class="single-footer-caption mb-50">
-                                <div class="footer-tittle">
-                                    <h4>Important Link</h4>
-                                    <ul>
-                                        <li><a href="#"> View Project</a></li>
-                                        <li><a href="#">Contact Us</a></li>
-                                        <li><a href="#">Testimonial</a></li>
-                                        <li><a href="#">Proparties</a></li>
-                                        <li><a href="#">Support</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                       
-                    </div>
-                </div>
-            </div>
-            <!-- footer-bottom -->
-            <div class="footer-bottom-area">
-                <div class="container">
-                    <div class="footer-border">
-                        <div class="row d-flex justify-content-between align-items-center">
-                            <div class="col-xl-10 col-lg-9 ">
-                                <div class="footer-copy-right">
-                                    <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved 
-                                </div>
-                            </div>
-                            <!-- <div class="col-xl-2 col-lg-3">
-                                <div class="footer-social f-right">
-                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                    <a  href="https://www.facebook.com/sai4ull"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="#"><i class="fas fa-globe"></i></a>
-                                    <a href="#"><i class="fab fa-behance"></i></a>
-                                </div>
-                            </div> -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+  
 
     <!-- Scroll Up -->
     <div id="back-top" >
@@ -353,6 +229,7 @@
       <script src="https://cdn.firebase.com/libs/angularfire/2.0.2/angularfire.min.js"></script>
     
     </body>
+    
     <style>
         .button {
         background-color: #1c87c9;
@@ -386,93 +263,7 @@
         animation: glowing 1300ms infinite;
       }
     </style>
-    <style>
-      * {
-      margin: 0;
-      padding: 0;
-      box-sizing: inherit;
-    }
-    html {
-      font-size: 1rem;
-      box-sizing: border-box;
-    }
-    body {
-      width: 100%;
-      height: 100%;
-      color: #272727;
-      line-height: 1.9;
-      background-color: #f7f5f5;
-      font-family:Arial, Helvetica, sans-serif;
-    }
-    h2{
-        text-align: center;
-        font-size: 2rem;
-        line-height: 3.5;
-    }
-    .slider{
-        position: relative;
-         max-width: 40rem; 
-        height: 26.625rem; 
-        margin: 0 auto;
-        overflow: hidden;
-    }
-    .slide{ 
-        position: absolute;
-        top:0;
-        width: 100%;
-        height: 26.625rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: transform 1s;
-    }
-    .slide > img{
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-    button{
-        background: none;
-        border: none;
-    }
-    button .fas{
-        color: black;
-    }
-    .btn-slide{
-        position:absolute;
-        top:50%;
-        z-index: 10;
     
-        height: 5.5rem;
-        width: 5.5rem;
-        cursor: pointer;
-    }
-    .prev{
-        left:3rem;
-        transform: translate(-50%, -50%);
-    }
-    .next{
-        right: 3rem;
-        transform: translate(50%, -50%); 
-    }
-    .dots-container{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-    }
-    .dot{
-        width: 25px;
-        height: 5px;
-        margin: 15px 5px;
-        border-radius: .5rem;
-        background: rgba(39,39,39, .5);
-        cursor: pointer;
-    }
-    .dot.active{
-    background:#272727;
-    }
-    </style>
     
     <script>
         (function() {
@@ -508,6 +299,21 @@
         this.object.$loaded()
             .then(function(data) {
                 $scope.contacts=data[7].data[0];
+                const data1=[
+            {id:'1',name:'Church Plantation & Borewell',image:'assets/img/Church%20Plantation%20&%20Borwell/IMG-5545.jpg', link:'Church%20Plantation%20&%20Borwell.html'},
+            {id:'2', name:'Free Medical Camps', image:'assets/img/free%20medical%20camps/IMG20230603120107.jpg',link:'free%20medical%20camps.html'},
+            {id:'3', name:'Leporasy Program',image:'assets/img/Leprosy%20program/WhatsApp%20Image%202024-07-14%20at%206.17.02%20PM.jpeg',link:'Leprosy%20program.html'},
+            {id:'4', name:'Natural Calamities',image:"assets/img/Natural%20Calanities/IMG-5574.jpg",link:'Natural%20Calanities.html'},
+            {id:'5', name:'Out Reach Gospels',image:"assets/img/Out%20reach%20Gospels/1.jpeg",link:'Out%20reach%20Gospels.html'},
+            {id:'6', name:'Pastors and Bible Women', image:"assets/img/pastor's%20&%20Bible%20Women/IMG-9549.jpg",link:`pastor's%20&%20Bible%20Women.html`},
+            {id:'7', name:'Physcially Challenged', image:"assets/img/phisicaly%20challengd/IMG-20230725-WA0046.jpg",link:'phisicaly%20challengd.html'},
+            {id:'8', name:'Sewing Machine Program', image:"assets/img/Sewing%20machine%20Program/IMG-20230725-WA0069.jpg",link:'Sewing%20machine%20Program.html'},
+            {id:'9', name:'Orphan & Semi-Orphan Children', image:"assets/img/Slum%20children%20&%20Education%20Support/IMG-20231003-WA0010.jpg",link:'Slum%20children%20&%20Education%20Support.html'},
+            {id:'10', name:'Tribal Evangelists Meeting', image:"assets/img/Tribal%20Evangelists%20Meeting%20Pic/WhatsApp%20Image%202024-07-14%20at%206.31.33%20PM.jpeg",link:'Tribal%20Evangelists%20Meeting%20Pic.html'},
+            {id:'11', name:'Widows Program', image:"assets/img/Widows%20program/WhatsApp%20Image%202024-07-14%20at%206.23.52%20PM%20(1).jpeg", link:'Widows%20program.html'},
+            {id:'12', name:'Jssw Ministries New Paper Images',image:'assets/img/JSSW%20Ministries%20News%20paper%20Pics/IMG-20230725-WA0056.jpg',link:'JSSW%20Ministries%20News%20paper%20Pics.html'}
+        ];
+        $scope.FinalData=data1;
 
             })
             .catch(function(error) {
