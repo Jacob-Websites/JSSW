@@ -36,7 +36,7 @@ jobs:
       run: stylelint '**/*.css' --syntax css
 
     - name: Run HTMLHint
-      run: htmlhint '**/*.html'
+      run: htmlhint 'public/**/*.html'
 
     - name: Upload Lint Results
       if: failure()
@@ -69,18 +69,18 @@ jobs:
       run: npm install -g htmlhint
 
     - name: Auto-fix ESLint issues
-      run: eslint '**/*.js' --fix
+      run: eslint 'public/**/*.js' --fix
 
     - name: Auto-fix Stylelint issues
-      run: stylelint '**/*.css' --fix --syntax css
+      run: stylelint 'public/**/*.css' --fix --syntax css
 
     - name: Auto-fix HTMLHint issues
-      run: htmlhint '**/*.html' --fix
+      run: htmlhint 'public/**/*.html' --fix
 
     - name: Commit and push fixes
       run: |
-        git config user.name "prabhutejad"
-        git config user.email "prabhuteja.iot@gmail.com"
+        git config user.name "github-actions"
+        git config user.email "github-actions@github.com"
         git checkout -b fix/bugfixes
         git add .
         git commit -m "Automated bug fixes"
