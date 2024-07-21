@@ -5,7 +5,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: '0 15 * * *' # Runs every day at 2 AM
+    - cron: '0 15 * * *' # Runs every day at 3 PM UTC
 
 jobs:
   lint:
@@ -20,17 +20,23 @@ jobs:
       with:
         node-version: '16'
 
-    - name: Install dependencies
-      run: npm install
+    - name: Install ESLint
+      run: npm install -g eslint
+
+    - name: Install Stylelint
+      run: npm install -g stylelint
+
+    - name: Install HTMLHint
+      run: npm install -g htmlhint
 
     - name: Run ESLint for JS
-      run: npx eslint '**/*.js' --format stylish
+      run: eslint '**/*.js' --format stylish
 
     - name: Run Stylelint for CSS
-      run: npx stylelint '**/*.css' --syntax css
+      run: stylelint '**/*.css' --syntax css
 
     - name: Run HTMLHint
-      run: npx htmlhint '**/*.html'
+      run: htmlhint '**/*.html'
 
     - name: Upload Lint Results
       if: failure()
@@ -53,17 +59,23 @@ jobs:
       with:
         node-version: '16'
 
-    - name: Install dependencies
-      run: npm install
+    - name: Install ESLint
+      run: npm install -g eslint
+
+    - name: Install Stylelint
+      run: npm install -g stylelint
+
+    - name: Install HTMLHint
+      run: npm install -g htmlhint
 
     - name: Auto-fix ESLint issues
-      run: npx eslint '**/*.js' --fix
+      run: eslint '**/*.js' --fix
 
     - name: Auto-fix Stylelint issues
-      run: npx stylelint '**/*.css' --fix --syntax css
+      run: stylelint '**/*.css' --fix --syntax css
 
     - name: Auto-fix HTMLHint issues
-      run: npx htmlhint '**/*.html' --fix
+      run: htmlhint '**/*.html' --fix
 
     - name: Commit and push fixes
       run: |
