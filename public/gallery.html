@@ -26,31 +26,54 @@
 	<link rel="stylesheet" href="assets/css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <style>
-        div.gallery {
-            margin: 5px;
-            border: 1px solid #ccc;
-            float: left;
-            width: 200px; /* Increased width */
-            height: 225px; /* Fixed height for the card */
-            cursor: pointer;
-            overflow: hidden; /* Ensures content doesn't overflow the card */
-        }
+      .card-container {
+        display: flex;
+        flex-wrap: wrap;
+        margin: -5px; /* Adjust to account for card margins */
+    }
 
-        div.gallery:hover {
-            border: 1px solid #09cc7f;
-        }
+    .card.gallery {
+        margin: 5px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        width: 100%; /* Full width by default */
+        cursor: pointer;
+        overflow: hidden; /* Ensures content doesn't overflow the card */
+    }
 
-        div.gallery img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Ensures the image covers the card without stretching */
-            display: block;
-        }
+    .card.gallery:hover {
+        border: 1px solid #09cc7f;
+    }
 
-        div.desc {
-            padding: 10px;
-            text-align: center;
+    .card.gallery a {
+        display: block;
+        width: 100%;
+        height: 200px; /* Fixed height for the image */
+    }
+
+    .card.gallery img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Ensures the image covers the card without stretching */
+        display: block;
+    }
+
+    .desc {
+        padding: 10px;
+        text-align: center;
+        background-color: #f4f4f4; /* Background color to distinguish the description */
+        box-sizing: border-box;
+    }
+
+    /* Media query for larger screens to display 2 cards per row */
+    @media (min-width: 600px) {
+        .card.gallery {
+            width: calc(50% - 10px); /* 50% width minus margin for two cards per row */
         }
+    }
+
+    
+
     </style>
 
 </head>
@@ -157,23 +180,16 @@
                     </div>
                 </div>
             </div>
-            <div class="container">
-  <div class="row">
-    <div class="col-md-4">
-      <div class="card gallery" ng-repeat="x in FinalData">
-        <a target="_blank" href="{{x.link}}">
-          <img class="card-img-top" src="{{x.image}}" alt="Jssw Ministries">
-        </a>
-        <div class="card-body">
-          <h5 class="card-title">{{x.name}}</h5>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+            
+            <div class="card-container">
+                <div class="card gallery" ng-repeat="x in FinalData">
+                    <a target="_blank" href="{{x.link}}">
+                        <img src="{{x.image}}" alt="Jssw Ministries" width="600" height="800">
+                    </a>
+                    <div class="desc">{{x.name}}</div>
+                </div>
+            </div>  
 
-          </div>
-          <div>
 
           </div>
     </section>
