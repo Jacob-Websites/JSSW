@@ -157,12 +157,21 @@
                     </div>
                 </div>
             </div>
-            <div class=" card gallery" ng-repeat="x in FinalData">
-                <a target="_blank" href={{x.link}}>
-                  <img src={{x.image}} alt="Jssw Ministries" width="600" height="800">
-                </a>
-                <div class="desc" href="#">{{x.name}}</div>
-              </div>
+            <div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card gallery" ng-repeat="x in FinalData">
+        <a target="_blank" href="{{x.link}}">
+          <img class="card-img-top" src="{{x.image}}" alt="Jssw Ministries">
+        </a>
+        <div class="card-body">
+          <h5 class="card-title">{{x.name}}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
           </div>
           <div>
 
