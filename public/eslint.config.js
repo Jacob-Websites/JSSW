@@ -1,16 +1,18 @@
-// eslint.config.js
-export default [
-    {
-      files: ["**/*.js"],
-      languageOptions: {
-        ecmaVersion: 2020,
-        sourceType: "module",
+// .eslintrc.js
+module.exports = {
+    overrides: [
+      {
+        files: ["**/*.js"],
+        parserOptions: {
+          ecmaVersion: 2020,
+          sourceType: "module",
+        },
+        rules: {
+          "no-unused-vars": "warn",
+          "no-console": "off",
+          "semi": ["error", "always"],
+        },
       },
-      rules: {
-        "no-unused-vars": "warn",
-        "no-console": "off",
-        "semi": ["error", "always"],
-      },
-    },
-  ];
+    ],
+  };
   
