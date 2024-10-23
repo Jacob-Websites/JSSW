@@ -25,7 +25,7 @@ jobs:
       #     projectBaseDir: .
 
       - name: Upload code artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: JSSW Production Code
           path: .
