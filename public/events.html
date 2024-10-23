@@ -67,6 +67,69 @@
         .button {
             animation: glowing 1300ms infinite;
         }
+
+        .single-job-items {
+    border: 1px solid #e0e0e0; /* Light border */
+    border-radius: 8px; /* Rounded corners */
+    transition: transform 0.2s; /* Transition effect */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ensure consistent spacing */
+    height: 100%; /* Make all cards the same height */
+}
+
+.single-job-items:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+.card-body {
+    padding: 15px; /* Padding for the card body */
+    flex-grow: 1; /* Allow the body to grow and take up available space */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Spread content vertically */
+}
+
+.card-title {
+    font-size: 1.5rem; /* Increase title size */
+    font-weight: bold; /* Bold title */
+}
+
+.card-text {
+    font-size: 1.2rem; /* Increase description size */
+}
+
+.list-inline-item {
+    font-size: 1rem; /* Increase font size for location */
+}
+
+/* Optional: Adjust the card image styling */
+.card-img-top {
+    border-top-left-radius: 8px; /* Rounded corners */
+    border-top-right-radius: 8px; /* Rounded corners */
+    height: auto; /* Ensure the image scales properly */
+    max-height: 200px; /* Limit the height of the image */
+    object-fit: cover; /* Ensure the image fills the space without distortion */
+}
+
+/* Make sure all cards have the same height */
+.single-job-items {
+    min-height: 100%; /* Make sure all cards stretch to the same height */
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+}
+
+.card-body {
+    flex-grow: 1; /* Ensure card content takes up available space */
+}
+.blog-title {
+    color: #2d2d2d; /* Title color */
+    font-size: 2rem; /* Example size */
+}
+
+/* Other styles can be managed similarly */
+
+
     </style>
     <!-- AngularFire -->
     <script src="https://cdn.firebase.com/libs/angularfire/2.0.2/angularfire.min.js"></script>
@@ -169,44 +232,50 @@
 
         <!-- Featured_job_start -->
         <section class="featured-job-area section-padding30 section-bg2"
-            data-background="assets/img/gallery/section_bg03.png" ng-if="form==1">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-xl-7 col-lg-9 col-md-10 col-sm-12">
-                        <!-- Section Tittle -->
-                        <div class="section-tittle text-center mb-80">
-                            <span>What we are doing</span>
-                            <h2>We arrange many social events for charity donations</h2>
-                        </div>
+        data-background="assets/img/gallery/section_bg03.png" ng-if="form==1">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-7 col-lg-9 col-md-10 col-sm-12">
+                    <!-- Section Title -->
+                    <div class="section-tittle text-center mb-80">
+                        <span>What we are doing</span>
+                        <h2>We arrange many social events for charity donations</h2>
                     </div>
                 </div>
-                <div class="row justify-content-center">
-
-                    <div class="col-lg-9 col-md-12">
+            </div>
+            <div class="row justify-content-center">
+    
+                <div class="col-lg-9 col-md-12">
+                    <div class="row">
                         <!-- single-job-content -->
-                        <div class="single-job-items mb-30">
-                            <div class="job-items-dumy row mb-5" ng-repeat="x in socialevents" style="display: flex;">
-                                <div class="company-img col-2">
-                                    <a href="#"><img src="assets/blog/{{x.title}}.jpg" ng-click="blog(x)" alt=""
-                                            style="width: 100%;"></a>
+                        <div class="col-lg-4 col-md-6 mb-4" ng-repeat="x in socialevents">
+                            <div class="card single-job-items text-center">
+                                <div class="job-items-dumy">
+                                    <a href="#" ng-click="blog(x)">
+                                        <img src="assets/blog/{{x.title}}.jpg" class="card-img-top" alt="{{x.title}}" style="height: 200px; object-fit: cover;">
+                                    </a>
                                 </div>
-                                <div class="job-tittle col-10" ng-click="blog(x)">
-                                    <a href="#" ng-click="blog(x)">
-                                        <h4 class="mb-2">{{x.title}}</h4>
-                                    </a>
-                                    <a href="#" ng-click="blog(x)">
-                                        <h5 class="mb-2">{{x.description}}</h5>
-                                    </a>
-                                    <ul>
-                                        <li><i class="fas fa-map-marker-alt"></i>{{x.location}}</li>
+                                <div class="card-body">
+                                    <h4 class="card-title mb-2">
+                                        <a href="#" ng-click="blog(x)">{{x.title}}</a>
+                                    </h4>
+                                    <p class="card-text mb-2">{{x.description}}</p>
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <i class="fas fa-map-marker-alt"></i> {{x.location}}
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
+                        <!-- End of single-job-content -->
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
+    
+    
         <!-- Featured_job_end -->
         <!--? Hero Start -->
         <div class="slider-area2" ng-if="form==2">
@@ -230,34 +299,32 @@
                     <div class="col-lg-12 posts-list">
                         <div class="single-post">
                             <div class="feature-img">
-                                <img class="img-fluid" src="assets/blog/{{bloglist.idmatch}}.jpg" alt="">
+                                <!-- Add lazy loading and descriptive alt text -->
+                                <img class="img-fluid" src="assets/blog/{{bloglist.idmatch}}.jpg" alt="{{bloglist.title}}" loading="lazy">
                             </div>
                             <div class="blog_details">
-                                <h2 style="color: #2d2d2d;">{{bloglist.title}}
-                                </h2>
-
-                                <p class="excert">{{bloglist.description}}
-                                </p>
-
+                                <!-- Removed inline style, should be managed in CSS -->
+                                <h2 class="blog-title">{{bloglist.title}}</h2>
+        
+                                <!-- Wrapped the description in a proper paragraph -->
+                                <p class="excert">{{bloglist.description}}</p>
+        
                                 <div class="quote-wrapper">
-                                    <div class="quotes text-dark" style="font-weight: bold;">
+                                    <div class="quotes text-dark font-weight-bold">
+                                        <!-- Removed inline styling, added a class for font weight -->
                                         {{bloglist.bible_verse}}
                                     </div>
                                 </div>
-                                <p>
-                                    {{bloglist.second_description}}
-                                </p>
-
+        
+                                <!-- Wrapped the second description in a paragraph -->
+                                <p>{{bloglist.second_description}}</p>
                             </div>
                         </div>
-
-
-
                     </div>
-
                 </div>
             </div>
         </section>
+        
     </main>
     <main ng-if="form==2">
 
