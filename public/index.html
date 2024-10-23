@@ -111,6 +111,79 @@
     }
 }
 
+.team-area {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    background-color: #f7f7f7;
+}
+
+
+/* Team Card */
+.team-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+}
+
+.team-card:hover {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+}
+
+.team-img-wrapper {
+    position: relative;
+    padding-bottom: 100%;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.team-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.team-card:hover .team-img {
+    transform: scale(1.05);
+}
+
+/* Team Info */
+.team-info {
+    margin-top: 15px;
+}
+
+.team-name {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.team-designation {
+    font-size: 16px;
+    color: #777;
+}
+
+@media (max-width: 768px) {
+    .section-tittle2 h2 {
+        font-size: 28px;
+    }
+
+    .team-area {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+}
+
+
   </style>
 </head>
 <body ng-app="myApp" ng-controller="MyCtrl as ctrl">
@@ -287,86 +360,37 @@
         </div>
     </section>
     
-    
-    
-    <!-- <div class="our-cases-area section-padding30">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-xl-6 col-lg-7 col-md-10 col-sm-10">
-   
-                    <div class="section-tittle text-center mb-80">
-                        <span>Our Cases you can see</span>
-                        <h2>Explore our latest causes that we works </h2>
-                    </div>
+
+ <!--? Team Area Start -->
+<div class="team-area pt-160 pb-160">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-6 col-lg-7 col-md-10 col-sm-10">
+                <!-- Section Title -->
+                <div class="section-tittle section-tittle2 text-center mb-70">
+                    <span style="color: #09cc7f;">What we are doing</span>
+                    <h2>Our JSSWM Founders</h2>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="single-cases mb-40">
-                        <div class="cases-img">
-                            <img src="assets/img/gallery/case1.png" alt="">
-                        </div>
-                        <div class="cases-caption">
-                            <h3><a href="#">Ensure Education For Every Poor Children</a></h3>
-                            
-                        </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-4 col-md-6 col-sm-12" ng-repeat="x in founderslist">
+                <div class="team-card mb-30">
+                    <div class="team-img-wrapper">
+                        <img src="assets/founders/{{x.name}}.jpg" alt="{{x.name}}" class="team-img">
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="single-cases mb-40">
-                        <div class="cases-img">
-                            <img src="assets/img/gallery/case2.png" alt="">
-                        </div>
-                        <div class="cases-caption">
-                            <h3><a href="#">Providing Healthy Food For The Children</a></h3>
-                           
-                           
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="single-cases mb-40">
-                        <div class="cases-img">
-                            <img src="assets/img/gallery/case3.png" alt="">
-                        </div>
-                        <div class="cases-caption">
-                            <h3><a href="#">Supply Drinking Water For  The People</a></h3>
-                        </div>
+                    <div class="team-info text-center mt-4">
+                        <h3 class="team-name">{{x.name}}</h3>
+                        <p class="team-designation">{{x.designation}}</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-   -->
-    <!--? Team Ara Start -->
-    <div class="team-area pt-160 pb-160">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-xl-6 col-lg-7 col-md-10 col-sm-10">
-                    <!-- Section Tittle -->
-                    <div class="section-tittle section-tittle2 text-center mb-70">
-                        <span>What we are doing</span>
-                        <h2>Our Jsswm Founders</h2>
-                    </div> 
-                </div>
-            </div>
-            <div class="row" >
-                <div class="col-lg-3 col-md-6 col-sm-6" ng-repeat="x in founderslist">
-                    <div class="single-team mb-30" >
-                        <div class="team-img">
-                            <img src="assets/founders/{{x.name}}.jpg" alt="">
-                        </div>
-                        <div class="team-caption">
-                            <h3><a href="#">{{x.name}}</a></h3>
-                            <p>{{x.designation}}</p>
-                        </div>
-                    </div>
-                </div>
-              
-                
-            </div>
-        </div>
-    </div>
+</div>
+<!--? Team Area End -->
+
+
    
 
     <!-- <div class="testimonial-area testimonial-padding">
