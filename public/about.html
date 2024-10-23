@@ -66,6 +66,83 @@
         animation: glowing 1300ms infinite;
       }
     </style>
+     <style>
+        .about-low-area {
+          padding: 60px 0;
+          background-color: #f9f9f9;
+      }
+      
+      /* Section title and content styling */
+      .section-title span {
+          display: block;
+          font-size: 16px;
+          color: #09cc7f;
+          text-transform: uppercase;
+          font-weight: 600;
+          margin-bottom: 15px;
+      }
+      
+      .section-title h2 {
+          font-size: 20px;
+          color: #333;
+          line-height: 1.6;
+          font-weight: 400;
+          margin-bottom: 20px;
+          text-align: justify;
+      }
+      
+      .section-title .text-bold {
+          font-weight: 700;
+      }
+      
+      .section-title .text-uppercase {
+          text-transform: uppercase;
+      }
+      
+      .about-caption ul {
+          padding: 0;
+          margin: 20px 0;
+          list-style: none;
+          text-align: justify;
+      }
+      
+      .about-caption ul li {
+          margin-bottom: 10px;
+          font-size: 18px;
+          line-height: 1.5;
+          font-weight: 600;
+      }
+      
+      .about-caption .btn {
+          display: inline-block;
+          background-color: #09cc7f;
+          color: #fff;
+          padding: 12px 30px;
+          border-radius: 50px;
+          text-decoration: none;
+          transition: background-color 0.3s ease;
+      }
+      
+      .about-caption .btn:hover {
+          background-color: #09cc7f;
+      }
+      
+      /* Media Queries for responsiveness */
+      @media (max-width: 768px) {
+          .section-title h2 {
+              font-size: 18px;
+          }
+      
+          .about-caption ul li {
+              font-size: 16px;
+          }
+      
+          .about-caption .btn {
+              padding: 10px 20px;
+          }
+      }
+      
+        </style>
 </head>
 <body ng-app="myApp" ng-controller="MyCtrl as ctrl">
     <!-- ? Preloader Start -->
@@ -192,31 +269,36 @@
     <!-- Services Area End -->
     <section class="about-low-area section-padding2">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-md-10">
-                    <div class="about-caption mb-50">
-                        <!-- Section Tittle -->
-                        <div class="section-tittle mb-35">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-md-12">
+                    <div class="about-caption">
+                        <!-- Section Title -->
+                        <div class="section-title mb-35">
                             <span>About our foundation</span>
-                            <h2>JSSWM is a non-profitable voluntary organization serves the needy focusing there to aplip in the needy people such as Slum,Leper,Tribal-Communities living in context proverty and injustice to become self-sufficient and bring lasting change, over a decade. </h2><br>
-                            <h2>Hanoch Putra, Founder and President,  Jacob Sundar Putra, Vice-President- working  through the committee, every month there is a council meeting to finalize the charity activities through resolutions passed by the committee.</h2><br>
-                            <h2 class="text-bold text-uppercase">Vision:  Know Jesus And Make Him Known With Love And Care. Serving All The Needy With No Caste And Creed</h2>
-                            <h2 ></h2><br>
-                            <h2>“i Was Hungry And You Gave Me Something To Eat, I Was Thirsty And You Gave Me Something To Drink, I Was Stranger And You Invited Me In, I Needed Clothes And You Clothed Me, I Was Sick And You Looked After Me, I Was In Prison And You Came To Visit Me” [matthew 25:35-37]</h2>
+                            <h2 class="mb-3">
+                                JSSWM is a non-profitable voluntary organization serving the needy, focusing on communities such as Slum, Leper, and Tribal-Communities living in poverty and injustice to become self-sufficient and bring lasting change over the past decade.
+                            </h2>
+                            <h2 class="mb-3">
+                                Hanoch Putra, Founder and President, and Jacob Sundar Putra, Vice-President, work through a committee. Every month, a council meeting is held to finalize charity activities through resolutions passed by the committee.
+                            </h2>
+                            <h2 class="text-bold text-uppercase mb-3">
+                                Vision: Know Jesus and Make Him Known with Love and Care. Serving all the needy with no caste or creed.
+                            </h2>
+                            <h2 class="mb-3">
+                                “I was hungry and you gave me something to eat, I was thirsty and you gave me something to drink, I was a stranger and you invited me in, I needed clothes and you clothed me, I was sick and you looked after me, I was in prison and you came to visit me” [Matthew 25:35-37]
+                            </h2>
+                            <h2 class="mb-3">
+                                The total population of India is 150 crore [1.5 billion]. Christians account for 3.22 crore [32 million]. The goal of JSSWM is to reach the unreached.
+                            </h2>
                         </div>
-                        <p><b>1.Child Health and Nutrition</b><br><b>2.Education</b><br><b>3.Livelihood and Resilience</b><br><b>4.Gender and Women Empowerment</b><br><b>5.Disability</b></p>
-                    </div>
-                    <a href="about.html" class="btn">About US</a>
-                </div>
-                <div class="col-lg-6 col-md-12">
-                    <!-- about-img -->
-                    <div class="about-img ">
-                        <div class="about-font-img d-none d-lg-block">
-                            <img src="assets/img/gallery/about2.png" alt="">
-                        </div>
-                        <div class="about-back-img ">
-                            <img src="assets/img/gallery/about1.png" alt="">
-                        </div>
+                        <ul class="about-list">
+                            <li><strong>1. Child Health and Nutrition</strong></li>
+                            <li><strong>2. Education</strong></li>
+                            <li><strong>3. Livelihood and Resilience</strong></li>
+                            <li><strong>4. Gender and Women Empowerment</strong></li>
+                            <li><strong>5. Disability</strong></li>
+                        </ul>
+                        <a href="about.html" class="btn mt-4">About Us</a>
                     </div>
                 </div>
             </div>
