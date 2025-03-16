@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       # - name: SonarQube Scan
       #   uses: sonarsource/sonarcloud-github-action@master
@@ -25,7 +25,7 @@ jobs:
       #     projectBaseDir: .
 
       - name: Upload code artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v5
         with:
           name: JSSW Production Code
           path: .
@@ -37,7 +37,7 @@ jobs:
     needs: DeployToProductionWebsite
     steps:
       - name: Download artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v5
         with:
           name: JSSW Production Code
           path: .
